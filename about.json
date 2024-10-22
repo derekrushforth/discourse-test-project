@@ -5,12 +5,19 @@
   "license_url": "TODO: Put your theme's LICENSE URL here",
   "learn_more": "TODO",
   "theme_version": "0.0.1",
-  "minimum_discourse_version": null,
-  "maximum_discourse_version": null,
   "assets": {
+    "spotify-font-normal": "assets/SpotifyMix-Regular.woff2",
+    "spotify-font-bold": "assets/SpotifyMix-Bold.woff2",
+    "spotify-font-extra-bold": "assets/SpotifyMix-ExtraBold.woff2",
+    "logo": "assets/logo-white.svg",
+    "social-instagram": "assets/instagram.svg",
+    "social-x": "assets/x.svg",
+    "social-facebook": "assets/facebook.svg"
   },
   "modifiers": {
   },
   "color_schemes": {
+  },
+  "components": {
   }
 }
