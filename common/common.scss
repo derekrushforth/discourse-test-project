@@ -93,11 +93,15 @@ p {
   color: rgb(25, 20, 20);
   font-size: 15px;
   font-weight: 400;
-  height: 746.812px;
   line-height: 25.7143px;
   padding: 0 0 55px;
   text-align: left;
   text-size-adjust: 100%;
+
+  // Match Discourse header transition
+  .wrap {
+    transition: all 250ms ease-in;
+  }
 
   &_hero {
     padding: 15px 0;
@@ -229,7 +233,7 @@ p {
 //-------------------------------------------
 
 .home-categories {
-  margin: 55px auto;
+  margin: 55px auto 0;
   padding: 0 15px;
   max-width: 730px;
   color: #FFF;
@@ -266,6 +270,11 @@ p {
     font-size: 49px;
     font-weight: 700;
     line-height: 1.2;
+  }
+
+  p {
+    margin: 0 auto;
+   max-width: 120px; 
   }
 
   &_icon {
