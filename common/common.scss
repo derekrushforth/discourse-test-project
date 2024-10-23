@@ -1,3 +1,10 @@
+// TODO: fix later
+// Breakpoints
+// width: 1170px;
+// width: 970px;
+// width: 750px;
+// width: 100%;
+
 //-------------------------------------------
 // Fonts
 //-------------------------------------------
@@ -41,7 +48,10 @@ p {
 //-------------------------------------------
 
 #site-logo,
-.d-header-mode {
+.d-header-mode
+// .d-header #current-user,
+// .d-header #current-user .user-menu-dropdown-wrapper 
+{
   display: none;
 }
 
@@ -69,42 +79,28 @@ p {
 //   }
 // }
 
-.d-header-new {
-  background-color: #000;
-
-  h1 {
-    font-size: 24px;
-    font-weight: normal;
-    line-height: 80px;
-  }
-}
-
-// .header-sidebar-toggle {
-//   order: 4;
-// }
-
 .header-wrapper {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: rgba(0, 0, 0, 0);
-  // background-image: url(https://community.spotify.com/html/assets/spotify-comm-grad2.jpg);
-  background-image: url(https://community.spotify.com/html/assets/spotify-comm-grad1.jpg);
+  background-image: url($header-bg-2);
   background-origin: padding-box;
   background-position: 0% 55%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #000;
   box-sizing: border-box;
   color: rgb(25, 20, 20);
   font-size: 15px;
   font-weight: 400;
   height: 746.812px;
   line-height: 25.7143px;
-  padding: 25px 0 55px;
+  padding: 0 0 55px;
   text-align: left;
   text-size-adjust: 100%;
 
   &_hero {
-    padding: 50px 0;
+    padding: 15px 0;
   }
 
   &_hero h2 {
@@ -118,15 +114,176 @@ p {
 
   &--slim {
     height: auto;
-    background: url(https://community.spotify.com/html/assets/spotify-comm-grad1.jpg)
-      no-repeat 0% 80% / cover;
+    background-image: url($header-bg-1);
+    background-position: 0% 80%;
   }
 }
 
-.navbar-logo {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  &_logo {
+    display: block;
+    width: 188px;
+    height: 40px;
+    margin: 20px;
+  }
+
+  &_items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+  }
+
+  &_items li {
+    padding: 25px;
+  }
+
+  &_items a {
+    color: #fff;
+    font-size: 16px;
+    transition: color 200ms;
+  }
+  &_items a:hover {
+    color: #9bf0e1;
+  }
+}
+
+.btn-nav-toggle {
+  &:focus,
+  &:active {
+    background-color: transparent !important;
+  }
+
+  svg {
+    font-size: var(--font-up-4);
+    line-height: var(--line-height-large);
+    display: inline-block;
+    fill: #fff;
+    font-size: 35px;
+  }
+
+  &:hover svg {
+    fill: #9bf0e1;
+  }
+}
+
+//-------------------------------------------
+// Main Search
+//-------------------------------------------
+
+.main-search {
+  text-align: center;
+
+  &--home {
+    margin-top: 25px;
+  }
+}
+
+//-------------------------------------------
+// Homepage Categories
+//-------------------------------------------
+
+.home-categories {
+  margin: 55px auto;
+  padding: 0 15px;
+  max-width: 730px;
+  color: #FFF;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+  }
+
+  li {
+    flex: 0 0 33.33%;
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 15px;
+    transition: all 300ms ease;
+  }
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &_content {
+    margin-top: 4px;
+  }
+
+  h3 {
+    font-size: 49px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &_icon {
+    margin: 0 auto;
+    max-width: 120px;
+  }
+  &_icon svg {
+    margin: 0 auto 25px;
+    font-size: 120px;
+  }
+}
+
+//-------------------------------------------
+// Nav sidebar
+//-------------------------------------------
+
+.nav-sidebar {
   display: block;
-  width: 188px;
-  height: 40px;
+  background-color: #000;
+  min-height: 100vh;
+  width: 500px;
+  max-width: 500px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 400ms ease-in;
+
+  &.is-active {
+    transform: translate(0);
+  }
+
+  .btn-nav-toggle svg {
+    fill: #fff;
+  }
+}
+
+.nav-sidebar.is-active + .nav-sidebar-overlay {
+  pointer-events: all;
+  opacity: 0.2;
+}
+.nav-sidebar-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
 }
 
 //-------------------------------------------
@@ -142,12 +299,6 @@ p {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    width: 1170px;
-    // Breakpoints
-    // TODO: fix later
-    // width: 970px;
-    // width: 750px;
-    // width: 100%;
   }
 }
 
@@ -250,14 +401,14 @@ p {
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    color: #FFF;
+    color: #fff;
   }
 
   &-icon {
     display: block;
     width: 24px;
     height: 24px;
-    background-color: #FFF;
+    background-color: #fff;
     background-repeat: no-repeat;
   }
   &-icon:hover {
@@ -274,7 +425,6 @@ p {
 .icon-facebook {
   background-image: url($social-facebook);
 }
-
 
 .footer_bottom-links {
   width: 100%;

@@ -12,7 +12,9 @@
     "logo": "assets/logo-white.svg",
     "social-instagram": "assets/instagram.svg",
     "social-x": "assets/x.svg",
-    "social-facebook": "assets/facebook.svg"
+    "social-facebook": "assets/facebook.svg",
+    "header-bg-1": "assets/header-bg-1.jpg",
+    "header-bg-2": "assets/header-bg-2.jpg"
   },
   "modifiers": {
   },
