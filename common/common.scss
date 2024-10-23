@@ -304,23 +304,79 @@ p {
 .nav-sidebar {
   display: block;
   background-color: #000;
-  min-height: 100vh;
+  height: 100vh;
   width: 500px;
   max-width: 500px;
-  overflow: auto;
+  overflow-y: auto;
+  padding: 38px;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 1005;
   transform: translateX(100%);
   transition: transform 400ms ease-in;
+  box-sizing: border-box;
 
   &.is-active {
     transform: translate(0);
   }
 
+  .btn-nav-toggle {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    z-index: 1;
+  }
   .btn-nav-toggle svg {
     fill: #fff;
+  }
+  .btn-nav-toggle:hover svg {
+    fill: #9bf0e1;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    position: relative;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+
+  li h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 0;
+    line-height: 1.2;
+  }
+
+  li h3 span,
+  li h3 > a {
+    font-size: 1.25em;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
+
+  li h3:hover {
+    color: #9bf0e1;
+    cursor: pointer;
+  }
+
+  &_sublist {
+    margin-top: 10px;
+  }
+  &_sublist li {
+    margin: 0;
+  }
+  &_sublist a {
+    color: #fff;
+    font-size: 16px;
+  }
+  &_sublist a:hover {
+    color: #9bf0e1;
   }
 }
 
