@@ -7,6 +7,7 @@ import icon from "discourse-common/helpers/d-icon";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";
 import HomeCategories from "./home-categories";
+import Breadcrumbs from "./breadcrumbs";
 
 export default class HomeHeader extends Component {
   @service site;
@@ -33,6 +34,7 @@ export default class HomeHeader extends Component {
       <div class="header-wrapper header-wrapper--slim">
         <HeaderTopBar />
         <HeaderSearch />
+        <Breadcrumbs />
       </div>
     {{/if}}
   </template>
