@@ -4,17 +4,15 @@ import { action } from "@ember/object";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-import userMenuWrapper from "discourse/components/header/user-menu-wrapper";
 import { tracked } from "@glimmer/tracking";
 import Notifications from "discourse/components/header/user-dropdown/notifications";
+import UserMenu from "./user-menu";
 
 export default class HomeHeader extends Component {
   @service site;
   @service router;
   @service siteSettings;
   @service currentUser;
-  @tracked showUserMenu = false;
-  @tracked outsideRecentlyClicked = false;
   @tracked showNavSidebar = false;
 
   constructor() {
@@ -33,26 +31,6 @@ export default class HomeHeader extends Component {
     this.showNavSidebar = !this.showNavSidebar;
   }
 
-  @action
-  toggleUserMenu(event) {
-    // Simple debounce to prevent multiple calls(from outside click) if user menu is already open
-    if (this.outsideRecentlyClicked) {
-      console.log("outside recently clicked");
-      return;
-    }
-
-    this.showUserMenu = !this.showUserMenu;
-  }
-
-  @action
-  userMenuOutsideClick(event) {
-    this.showUserMenu = false;
-    this.outsideRecentlyClicked = true;
-
-    setTimeout(() => {
-      this.outsideRecentlyClicked = false;
-    }, 200);
-  }
 
   <template>
     {{#if this.isHomePage}}
@@ -78,35 +56,7 @@ export default class HomeHeader extends Component {
                   class="navbar_link"
                 >Get Premium</a>
               </li>
-
-              {{#if this.currentUser}}
-                <li class="user-menu">
-                  <button
-                    id="toggle-current-user"
-                    class="js-toggle-current-user icon btn-flat
-                      {{if this.showUserMenu 'is-active'}}"
-                    aria-haspopup="true"
-                    aria-expanded={{this.showUserMenu}}
-                    onClick={{this.toggleUserMenu}}
-                  >
-                    <Notifications @active={{this.showUserMenu}} />
-                    <span
-                      class="user-menu_username"
-                    >{{this.currentUser.username}}</span>
-                    {{icon "caret-down"}}
-                  </button>
-
-                  {{#if this.showUserMenu}}
-                    {{userMenuWrapper toggleUserMenu=this.userMenuOutsideClick}}
-                  {{/if}}
-                </li>
-
-              {{else}}
-                <li>
-                  <a href="/login" class="navbar_link">Log In</a>
-                </li>
-              {{/if}}
-
+              <UserMenu />
               <li>
                 <button
                   title="Navigation"
