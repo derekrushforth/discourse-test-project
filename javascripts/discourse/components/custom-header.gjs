@@ -7,6 +7,7 @@ import icon from "discourse-common/helpers/d-icon";
 import { tracked } from "@glimmer/tracking";
 import Notifications from "discourse/components/header/user-dropdown/notifications";
 import UserMenu from "./user-menu";
+import NavSidebar from "./nav-sidebar";
 
 export default class HomeHeader extends Component {
   @service site;
@@ -30,7 +31,6 @@ export default class HomeHeader extends Component {
     navSidebar.classList.toggle("is-active");
     this.showNavSidebar = !this.showNavSidebar;
   }
-
 
   <template>
     {{#if this.isHomePage}}
@@ -72,24 +72,10 @@ export default class HomeHeader extends Component {
           </div>
         </div>
 
-        {{! Navigation overlay }}
-
-        <nav role="navigation" class="js-nav-sidebar nav-sidebar">
-          <button
-            title="Navigation"
-            class="btn btn-flat btn-nav-toggle no-text btn-icon"
-            aria-expanded={{this.showNavSidebar}}
-            aria-controls="nav-sidebar"
-            onClick={{this.toggleNavSidebar}}
-          >
-            {{icon "times"}}
-          </button>
-
-        </nav>
-        <div
-          class="nav-sidebar-overlay"
-          onClick={{this.toggleNavSidebar}}
-        ></div>
+        <NavSidebar
+          @isOpen={{this.showNavSidebar}}
+          @onClose={{this.toggleNavSidebar}}
+        />
 
         <div class="header-wrapper_hero">
           <h2>Find solutions, share ideas<br />and discuss music</h2>
