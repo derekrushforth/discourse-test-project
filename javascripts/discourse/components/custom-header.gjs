@@ -4,9 +4,7 @@ import { action } from "@ember/object";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-// import userDropdown from "discourse/components/header/user-dropdown";
 import userMenuWrapper from "discourse/components/header/user-menu-wrapper";
-// import userNav from "discourse/components/user-nav";
 import { tracked } from "@glimmer/tracking";
 import Notifications from "discourse/components/header/user-dropdown/notifications";
 
