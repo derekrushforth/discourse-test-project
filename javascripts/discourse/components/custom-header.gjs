@@ -8,18 +8,13 @@ import { tracked } from "@glimmer/tracking";
 import Notifications from "discourse/components/header/user-dropdown/notifications";
 import UserMenu from "./user-menu";
 import NavSidebar from "./nav-sidebar";
-
+import HeaderSearch from "./header-search";
 export default class HomeHeader extends Component {
   @service site;
   @service router;
   @service siteSettings;
   @service currentUser;
   @tracked showNavSidebar = false;
-
-  constructor() {
-    super(...arguments);
-    console.log("Current user:", this.currentUser);
-  }
 
   get isHomePage() {
     return this.router.currentRouteName === `discovery.${defaultHomepage()}`;
@@ -80,7 +75,7 @@ export default class HomeHeader extends Component {
         <div class="header-wrapper_hero">
           <h2>Find solutions, share ideas<br />and discuss music</h2>
           <div class="main-search main-search--home">
-            <input type="text" placeholder="Search" />
+            <HeaderSearch />
           </div>
         </div>
 

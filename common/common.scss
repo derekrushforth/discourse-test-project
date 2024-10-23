@@ -197,12 +197,59 @@ p {
 //-------------------------------------------
 
 .main-search {
-  text-align: center;
-
   &--home {
-    margin-top: 25px;
+    margin: 40px auto 20px;
   }
 }
+
+.search-wrapper {
+  position: relative;
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 550px;
+  border-radius: 50px;
+
+  .search-input {
+    background-color: transparent;
+    border: none;
+    padding: 6px;
+  }
+  .search-input:focus-within {
+    border: none;
+    outline: none;
+  }
+  
+  input[type="search"] {
+    padding-left: 55px;
+    font-size: 18px;
+  }
+
+  .search-menu-panel {
+    top: 60px !important;
+    border-radius: 20px;
+  }
+
+  > .d-icon-search {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+  }
+
+  .show-advanced-search {
+    margin-right: 15px;
+  }
+  .show-advanced-search svg {
+    font-size: 20px;
+  }
+
+  .search-link:hover {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+  }
+}
+
 
 //-------------------------------------------
 // Homepage Categories
