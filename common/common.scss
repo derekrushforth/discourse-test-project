@@ -29,10 +29,7 @@
 // Global
 //-------------------------------------------
 
-body {
-  font-family: "Spotify Font", sans-serif !important;
-}
-
+body,
 h1,
 h2,
 h3,
@@ -44,40 +41,19 @@ p {
 }
 
 //-------------------------------------------
-// Header
+// Hide duplicate Discourse elements
 //-------------------------------------------
 
 #site-logo,
 .d-header-mode,
 .d-header #current-user,
-.d-header #current-user .user-menu-dropdown-wrapper 
-{
+.d-header #current-user .user-menu-dropdown-wrapper {
   display: none;
 }
 
-.d-header-wrap {
-  position: relative;
-}
-// .d-header-wrap {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-
-//   .d-header {
-//     background-color: transparent;
-//     box-shadow: none;
-//   }
-
-//   .d-header-mode {
-//     display: none;
-//   }
-
-//   .d-header-icons .d-icon,
-//   .header-sidebar-toggle button .d-icon {
-//     color: #FFF;
-//   }
-// }
+//-------------------------------------------
+// Header
+//-------------------------------------------
 
 .header-wrapper {
   background-attachment: scroll;
