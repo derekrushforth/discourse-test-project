@@ -120,6 +120,7 @@ p {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,37 +143,72 @@ p {
     margin: 0;
     list-style: none;
   }
-
   &_items li {
     padding: 25px;
   }
-
-  &_items a {
+  
+  &_link,
+  &_link:visited {
     color: #fff;
     font-size: 16px;
     transition: color 200ms;
   }
-  &_items a:hover {
+  &_link:hover {
     color: #9bf0e1;
   }
 }
 
-.btn-nav-toggle {
-  &:focus,
-  &:active {
+//-------------------------------------------
+// User Menu Dropdown
+//-------------------------------------------
+
+.user-menu {
+  color: #fff;
+
+  button svg {
+    fill: #fff;
+  }
+  button:hover,
+  button:focus,
+  button:active,
+  button.is-active {
+    color: #9bf0e1 !important;
     background-color: transparent !important;
   }
+  button:hover svg,
+  button:focus svg,
+  button:Active svg,
+  button.is-active svg {
+    fill: #9bf0e1;
+  }
+  button:hover .avatar,
+  button:focus .avatar,
+  button:Active .avatar,
+  button.is-active .avatar {
+    border-color: #9bf0e1;
+  } 
 
-  svg {
-    font-size: var(--font-up-4);
-    line-height: var(--line-height-large);
-    display: inline-block;
-    fill: #fff;
-    font-size: 35px;
+  &_username {
+    padding: 0 6px 0 10px;
   }
 
-  &:hover svg {
-    fill: #9bf0e1;
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-menu-dropdown-wrapper {
+    position:relative;
+  
+    .user-menu {
+      top: 10px;
+    }
+  
+    .user-menu .panel-body {
+      max-height: 500px;
+    }
   }
 }
 
@@ -246,6 +282,25 @@ p {
 // Nav sidebar
 //-------------------------------------------
 
+.btn-nav-toggle {
+  &:focus,
+  &:active {
+    background-color: transparent !important;
+  }
+
+  svg {
+    font-size: var(--font-up-4);
+    line-height: var(--line-height-large);
+    display: inline-block;
+    fill: #fff;
+    font-size: 35px;
+  }
+
+  &:hover svg {
+    fill: #9bf0e1;
+  }
+}
+
 .nav-sidebar {
   display: block;
   background-color: #000;
@@ -256,7 +311,7 @@ p {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1005;
   transform: translateX(100%);
   transition: transform 400ms ease-in;
 
@@ -283,7 +338,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 1004;
 }
 
 //-------------------------------------------

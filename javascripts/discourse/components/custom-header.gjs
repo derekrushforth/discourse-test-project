@@ -1,17 +1,23 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
+import { action } from "@ember/object";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-import userDropdown from "discourse/components/header/user-dropdown";
+// import userDropdown from "discourse/components/header/user-dropdown";
 import userMenuWrapper from "discourse/components/header/user-menu-wrapper";
-import userNav from "discourse/components/user-nav";
+// import userNav from "discourse/components/user-nav";
+import { tracked } from "@glimmer/tracking";
+import Notifications from "discourse/components/header/user-dropdown/notifications";
 
 export default class HomeHeader extends Component {
   @service site;
   @service router;
   @service siteSettings;
   @service currentUser;
+  @tracked showUserMenu = false;
+  @tracked outsideRecentlyClicked = false;
+  @tracked showNavSidebar = false;
 
   constructor() {
     super(...arguments);
@@ -22,18 +28,32 @@ export default class HomeHeader extends Component {
     return this.router.currentRouteName === `discovery.${defaultHomepage()}`;
   }
 
+  @action
+  toggleNavSidebar() {
+    const navSidebar = document.querySelector(".js-nav-sidebar");
+    navSidebar.classList.toggle("is-active");
+    this.showNavSidebar = !this.showNavSidebar;
+  }
 
-  actions = {
-    toggleNavSidebar() {
-      const navSidebar = document.querySelector('.js-nav-sidebar');
-      navSidebar.classList.toggle('is-active');
-    },
-
-    toggleDropdown(event) {
-      console.log('TEST')
-      // const dropdownMenu = event.target.closest('.custom-user-dropdown').querySelector('.custom-user-dropdown-menu');
-      // dropdownMenu.classList.toggle('is-active');
+  @action
+  toggleUserMenu(event) {
+    // Simple debounce to prevent multiple calls(from outside click) if user menu is already open
+    if (this.outsideRecentlyClicked) {
+      console.log("outside recently clicked");
+      return;
     }
+
+    this.showUserMenu = !this.showUserMenu;
+  }
+
+  @action
+  userMenuOutsideClick(event) {
+    this.showUserMenu = false;
+    this.outsideRecentlyClicked = true;
+
+    setTimeout(() => {
+      this.outsideRecentlyClicked = false;
+    }, 200);
   }
 
   <template>
@@ -55,20 +75,37 @@ export default class HomeHeader extends Component {
 
             <ul class="navbar_items">
               <li>
-                <a href="https://www.spotify.com/us/premium/?checkout=false">Get
-                  Premium</a>
+                <a
+                  href="https://www.spotify.com/us/premium/?checkout=false"
+                  class="navbar_link"
+                >Get Premium</a>
               </li>
 
               {{#if this.currentUser}}
-                {{userDropdown currentUser=this.currentUser}}
-                {{!-- {{userMenuWrapper currentUser=this.currentUser}} --}}
-                <li>
-                  {{!-- <a href="/my/preferences">{{this.currentUser.username}}</a> --}}
+                <li class="user-menu">
+                  <button
+                    id="toggle-current-user"
+                    class="js-toggle-current-user icon btn-flat
+                      {{if this.showUserMenu 'is-active'}}"
+                    aria-haspopup="true"
+                    aria-expanded={{this.showUserMenu}}
+                    onClick={{this.toggleUserMenu}}
+                  >
+                    <Notifications @active={{this.showUserMenu}} />
+                    <span
+                      class="user-menu_username"
+                    >{{this.currentUser.username}}</span>
+                    {{icon "caret-down"}}
+                  </button>
+
+                  {{#if this.showUserMenu}}
+                    {{userMenuWrapper toggleUserMenu=this.userMenuOutsideClick}}
+                  {{/if}}
                 </li>
-                
+
               {{else}}
                 <li>
-                  <a href="/login">Log In</a>
+                  <a href="/login" class="navbar_link">Log In</a>
                 </li>
               {{/if}}
 
@@ -76,15 +113,14 @@ export default class HomeHeader extends Component {
                 <button
                   title="Navigation"
                   class="btn btn-flat btn-nav-toggle no-text btn-icon"
-                  aria-expanded="false"
+                  aria-expanded={{this.showNavSidebar}}
                   aria-controls="nav-sidebar"
-                  onClick={{action "toggleNavSidebar"}}
+                  onClick={{this.toggleNavSidebar}}
                 >
                   {{icon "bars"}}
                 </button>
               </li>
             </ul>
-             
           </div>
         </div>
 
@@ -94,15 +130,18 @@ export default class HomeHeader extends Component {
           <button
             title="Navigation"
             class="btn btn-flat btn-nav-toggle no-text btn-icon"
-            aria-expanded="false"
+            aria-expanded={{this.showNavSidebar}}
             aria-controls="nav-sidebar"
-            onClick={{action "toggleNavSidebar"}}
+            onClick={{this.toggleNavSidebar}}
           >
             {{icon "times"}}
           </button>
 
         </nav>
-        <div class="nav-sidebar-overlay" onClick={{action "toggleNavSidebar"}}></div>
+        <div
+          class="nav-sidebar-overlay"
+          onClick={{this.toggleNavSidebar}}
+        ></div>
 
         <div class="header-wrapper_hero">
           <h2>Find solutions, share ideas<br />and discuss music</h2>
