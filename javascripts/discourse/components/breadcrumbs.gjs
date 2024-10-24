@@ -42,6 +42,16 @@ export default class Breadcrumbs extends Component {
         return this.categoryName;
       case route.includes("discovery.top"):
         return i18n("js.filters.top.title");
+      case route === "user.summary":
+        return i18n("js.user.summary.title");
+      case route.includes("userActivity"):
+        return i18n("js.user.activity_stream");
+      case route === "userNotifications.index":
+        return i18n("js.user.notifications");
+      case route === "userInvited.show":
+        return i18n("js.user.invited.title");
+      case route === "user.badges":
+        return i18n("js.badges.title");
       case route.includes("topic.fromParams"):
         const topicController = getOwner(this).lookup("controller:topic");
         if (topicController && topicController.model) {
