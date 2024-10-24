@@ -1,9 +1,26 @@
-// TODO: fix later
-// Breakpoints
-// width: 1170px;
-// width: 970px;
-// width: 750px;
-// width: 100%;
+@mixin at-s {
+  @media screen and (min-width: #{$small-width}) {
+    @content;
+  }
+}
+@mixin at-m {
+  @media screen and (min-width: #{$medium-width}) {
+    @content;
+  }
+}
+@mixin at-l {
+  @media screen and (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+
+:root {
+  --spotify-green: #1ed760;
+  --spotify-green-alt: #9bf0e1;
+  --spotify-blue: #576dd6;
+  --d-nav-color-active: var(--spotify-blue);
+}
 
 //-------------------------------------------
 // Fonts
@@ -44,6 +61,24 @@ p {
 // Hide global elements
 //-------------------------------------------
 
+.d-header {
+  background-color: #f1f1f1;
+  color: #000;
+
+  svg {
+    fill: var(--spotify-blue);
+  }
+
+  .d-header-mode .btn {
+    background-color: var(--spotify-blue);
+    color: #fff;
+    transition: all 200ms ease-in-out;
+  }
+  .d-header-mode .btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}
 .d-header .title {
   display: none;
 }
@@ -59,7 +94,8 @@ p {
   opacity: 0;
 }
 
-// Show elements when extra-info-wrapper is active
+// Show elements when header is in sticky mode
+// TODO: Is there a class hook or helper for this?
 .d-header .extra-info-wrapper ~ .panel .search-dropdown,
 .d-header .extra-info-wrapper ~ .panel #current-user {
   display: block;
@@ -75,9 +111,14 @@ p {
   border-radius: 25px 25px 0 0;
   max-width: 700px;
   white-space: nowrap;
-  margin: 45px auto 0;
+  margin: 45px 15px 0;
   color: rgba(#fff, 0.7);
   font-size: 15px;
+
+  @include at-s {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &__container {
     display: flex;
@@ -123,7 +164,7 @@ p {
     color: #fff;
   }
   a:hover {
-    color: #9bf0e1;
+    color: var(--spotify-green-alt);
   }
 }
 
@@ -146,9 +187,12 @@ p {
   font-size: 15px;
   font-weight: 400;
   line-height: 25.7143px;
-  padding: 0 0 55px;
   text-align: left;
   text-size-adjust: 100%;
+
+  @include at-s {
+    padding-bottom: 55px;
+  }
 
   // Match Discourse header transition
   .wrap {
@@ -160,21 +204,26 @@ p {
   }
 
   &_hero h2 {
-    font-size: 49px;
+    font-size: 27px;
     font-weight: 700;
     letter-spacing: -1px;
     color: #fff;
-    line-height: 1.1;
+    line-height: 1.2;
     text-align: center;
+
+    @include at-s {
+      font-size: 49px;
+      line-height: 1.1;
+    }
   }
 
   &--slim {
     background-position: 0% 80%;
     padding-bottom: 0;
   }
-  // &--slim .search-wrapper {
-  //   margin: 25px auto;
-  // }
+  &--slim .search-wrapper {
+    margin: 25px auto;
+  }
 }
 
 .navbar {
@@ -189,9 +238,13 @@ p {
 
   &_logo {
     display: block;
-    width: 188px;
+    width: 150px;
     height: 40px;
     margin: 20px;
+
+    @include at-s {
+      width: 188px;
+    }
   }
 
   &_items {
@@ -202,7 +255,18 @@ p {
     list-style: none;
   }
   &_items li {
-    padding: 0 25px;
+    padding: 0 5px;
+
+    @include at-s {
+      padding: 0 25px;
+    }
+  }
+  &_items li:first-child {
+    display: none;
+
+    @include at-s {
+      display: block;
+    }
   }
 
   &_link,
@@ -212,7 +276,7 @@ p {
     transition: color 200ms;
   }
   &_link:hover {
-    color: #9bf0e1;
+    color: var(--spotify-green-alt);
   }
 }
 
@@ -221,33 +285,45 @@ p {
 //-------------------------------------------
 
 .user-menu {
+  position: relative;
   color: #fff;
+  padding-left: 15px !important;
 
   button svg {
     fill: #fff;
+    display: none;
+
+    @include at-s {
+      display: inline-block;
+    }
   }
   button:hover,
   button:focus,
   button:active,
   button.is-active {
-    color: #9bf0e1 !important;
+    color: var(--spotify-green-alt) !important;
     background-color: transparent !important;
   }
   button:hover svg,
   button:focus svg,
   button:active svg,
   button.is-active svg {
-    fill: #9bf0e1;
+    fill: var(--spotify-green-alt);
   }
   button:hover .avatar,
   button:focus .avatar,
   button:active .avatar,
   button.is-active .avatar {
-    border-color: #9bf0e1;
+    border-color: var(--spotify-green-alt);
   }
 
   &_username {
     padding: 0 6px 0 10px;
+    display: none;
+
+    @include at-s {
+      display: inline-block;
+    }
   }
 
   .avatar {
@@ -269,6 +345,21 @@ p {
       max-height: 500px;
     }
   }
+
+  .badge-notification {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    background-color: #eb1e32;
+    padding: 3px 7px;
+    min-width: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+  }
 }
 
 //-------------------------------------------
@@ -276,6 +367,12 @@ p {
 //-------------------------------------------
 
 .main-search {
+  padding: 0 15px;
+
+  @include at-s {
+    padding: 0;
+  }
+
   &--home {
     margin: 40px auto 20px;
   }
@@ -320,6 +417,9 @@ p {
   .show-advanced-search {
     margin-right: 15px;
   }
+  .show-advanced-search:active {
+    background-color: transparent !important;
+  }
   .show-advanced-search svg {
     font-size: 20px;
   }
@@ -335,57 +435,98 @@ p {
 //-------------------------------------------
 
 .home-categories {
-  margin: 55px auto 0;
+  margin: 25px auto 0;
   padding: 0 15px;
   max-width: 730px;
   color: #fff;
 
+  @include at-s {
+    margin-top: 55px;
+  }
+
   ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column;
     text-align: center;
     justify-content: center;
     list-style: none;
     margin: 0;
+
+    @include at-s {
+      flex-flow: wrap;
+    }
   }
 
   li {
-    flex: 0 0 33.33%;
+    @include at-s {
+      flex: 0 0 33.3%;
+    }
   }
 
   a {
-    display: block;
+    display: flex;
+    flex-flow: wrap;
     color: #fff;
     padding: 15px 0;
     border-radius: 15px;
     transition: all 300ms ease;
+
+    @include at-s {
+      flex-flow: column;
+    }
   }
   a:hover {
     background-color: rgba(255, 255, 255, 0.15);
   }
 
   &_content {
-    margin-top: 4px;
+    flex: 1;
+    text-align: left;
+
+    @include at-s {
+      text-align: center;
+    }
   }
 
   h3 {
-    font-size: 49px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
+    margin-bottom: 0;
+
+    @include at-s {
+      margin-bottom: 5px;
+      font-size: 49px;
+    }
   }
 
   p {
-    margin: 0 auto;
-    max-width: 120px;
+    margin: 0;
+    font-size: 15px;
+
+    @include at-s {
+      margin: 0 auto;
+      max-width: 120px;
+    }
   }
 
   &_icon {
-    margin: 0 auto;
-    max-width: 120px;
+    max-width: 60px;
+    margin: 0 20px;
+
+    @include at-s {
+      margin: 0 auto;
+      max-width: 120px;
+    }
   }
   &_icon svg {
-    margin: 0 auto 25px;
-    font-size: 120px;
+    margin: 0 auto 5px;
+    font-size: 60px;
+
+    @include at-s {
+      margin: 0 auto 25px;
+      font-size: 120px;
+    }
   }
 }
 
@@ -408,7 +549,7 @@ p {
   }
 
   &:hover svg {
-    fill: #9bf0e1;
+    fill: var(--spotify-green-alt);
   }
 }
 
@@ -416,8 +557,7 @@ p {
   display: block;
   background-color: #000;
   height: 100vh;
-  width: 500px;
-  max-width: 500px;
+  width: 100%;
   overflow-y: auto;
   padding: 38px;
   position: fixed;
@@ -427,6 +567,11 @@ p {
   transform: translateX(100%);
   transition: transform 400ms ease-in;
   box-sizing: border-box;
+
+  @include at-s {
+    max-width: 500px;
+    width: 500px;
+  }
 
   &.is-active {
     transform: translate(0);
@@ -442,7 +587,7 @@ p {
     fill: #fff;
   }
   .btn-nav-toggle:hover svg {
-    fill: #9bf0e1;
+    fill: var(--spotify-green-alt);
   }
 
   ul {
@@ -472,7 +617,7 @@ p {
   }
 
   li h3:hover {
-    color: #9bf0e1;
+    color: var(--spotify-green-alt);
     cursor: pointer;
   }
 
@@ -487,7 +632,7 @@ p {
     font-size: 16px;
   }
   &_sublist a:hover {
-    color: #9bf0e1;
+    color: var(--spotify-green-alt);
   }
 }
 
@@ -592,8 +737,7 @@ p {
   }
 
   dd a:hover {
-    // TODO: Move to variable
-    color: #1ed760;
+    color: var(--spotify-green);
   }
 }
 
@@ -634,7 +778,7 @@ p {
     background-repeat: no-repeat;
   }
   &-icon:hover {
-    background-color: #1ed760;
+    background-color: var(--spotify-green);
   }
 }
 
@@ -673,12 +817,11 @@ p {
     align-items: center;
     white-space: nowrap;
     text-decoration: none;
-    color: #919496; // TODO: Move to variable
+    color: #919496;
   }
 
   a:hover {
-    // TODO: Move to variable
-    color: #1ed760;
+    color: var(--spotify-green);
   }
 }
 
@@ -687,5 +830,77 @@ p {
   padding: 1em 0;
   flex-shrink: 0;
   font-size: 12px;
-  color: #919496; // TODO: Move to variable
+  color: #919496;
+}
+
+//-------------------------------------------
+// Topic
+//-------------------------------------------
+
+#topic-title h1 {
+  font-size: 40px !important;
+}
+
+.topic-body {
+  border-top: none;
+}
+.topic-body .cooked {
+  line-height: 1.7;
+  font-size: 15px;
+
+  h2 {
+    margin: 2.5rem 0 1rem;
+  }
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  ul li .list-item-checkbox {
+    margin-right: 5px;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.topic-avatar {
+  border-top: none;
+}
+
+//-------------------------------------------
+// Generic overrides
+//-------------------------------------------
+
+.btn {
+  border-radius: 50px;
+  max-width: $small-width;
+}
+.btn-primary {
+  background-color: #d64000;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: #ff7439 !important;
+  }
+}
+
+#reply-control {
+  z-index: 1005;
+}
+
+.header-sidebar-toggle button {
+  margin-right: 0;
+}
+
+.sidebar-section-wrapper .sidebar-section-link {
+  color: #000;
+
+  .svg-icon {
+    fill: #c1c1c1;
+  }
 }

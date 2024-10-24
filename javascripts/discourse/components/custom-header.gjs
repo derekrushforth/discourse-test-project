@@ -33,7 +33,9 @@ export default class HomeHeader extends Component {
     {{else}}
       <div class="header-wrapper header-wrapper--slim">
         <HeaderTopBar />
-        <HeaderSearch />
+        <div class="main-search">
+          <HeaderSearch />
+        </div>
         <Breadcrumbs />
       </div>
     {{/if}}
