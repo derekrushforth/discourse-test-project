@@ -14,12 +14,12 @@
   }
 }
 
-
 :root {
   --spotify-green: #1ed760;
   --spotify-green-alt: #9bf0e1;
   --spotify-blue: #576dd6;
-  --d-nav-color-active: var(--spotify-blue);
+  --spotify-orange: #D64000;
+  --d-nav-color-active: var(--spotify-orange);
 }
 
 //-------------------------------------------
@@ -58,7 +58,7 @@ p {
 }
 
 //-------------------------------------------
-// Hide global elements
+// Global header elements
 //-------------------------------------------
 
 .d-header {
@@ -66,11 +66,11 @@ p {
   color: #000;
 
   svg {
-    fill: var(--spotify-blue);
+    fill: var(--spotify-orange);
   }
 
   .d-header-mode .btn {
-    background-color: var(--spotify-blue);
+    background-color: var(--spotify-orange);
     color: #fff;
     transition: all 200ms ease-in-out;
   }
@@ -78,38 +78,39 @@ p {
     background-color: #fff;
     color: #000;
   }
-}
-.d-header .title {
-  display: none;
+
+  .title,
+  .header-buttons {
+    display: none;
+  }
+
+  #current-user,
+  .search-dropdown {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  // Show elements when header is in sticky mode
+  // TODO: Is there a class hook or helper for this?
+  .extra-info-wrapper ~ .panel .search-dropdown,
+  .extra-info-wrapper ~ .panel #current-user {
+    display: block;
+    opacity: 1;
+    transition: all 200ms;
+    overflow: auto;
+    width: auto;
+  }
 }
 
 //-------------------------------------------
-// Global header elements
+// Breadcrumbs
 //-------------------------------------------
-
-.d-header #current-user,
-.d-header .search-dropdown {
-  width: 0;
-  overflow: hidden;
-  opacity: 0;
-}
-
-// Show elements when header is in sticky mode
-// TODO: Is there a class hook or helper for this?
-.d-header .extra-info-wrapper ~ .panel .search-dropdown,
-.d-header .extra-info-wrapper ~ .panel #current-user {
-  display: block;
-  opacity: 1;
-  transition: all 200ms;
-  overflow: auto;
-  width: auto;
-}
 
 .breadcrumbs {
   z-index: 101;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 25px 25px 0 0;
-  max-width: 700px;
   white-space: nowrap;
   margin: 45px 15px 0;
   color: rgba(#fff, 0.7);
@@ -118,6 +119,7 @@ p {
   @include at-s {
     margin-left: auto;
     margin-right: auto;
+    max-width: 700px;
   }
 
   &__container {
@@ -157,7 +159,11 @@ p {
   }
 
   &__title {
-    margin-right: 10px;
+    display: none;
+
+    @include at-s {
+      margin-right: 10px;
+    }
   }
 
   a {
@@ -176,7 +182,7 @@ p {
   background-attachment: scroll;
   background-clip: border-box;
   background-color: rgba(0, 0, 0, 0);
-  background-image: url($header-bg-1);
+  background-image: url($header-bg-2);
   background-origin: padding-box;
   background-position: 0% 55%;
   background-repeat: no-repeat;
