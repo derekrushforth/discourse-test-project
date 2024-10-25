@@ -2,13 +2,13 @@
  * Component extended from https://github.com/denvergeeks/discourse-breadcrumb-links
  */
 import Component from "@glimmer/component";
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { or } from "truth-helpers";
 import bodyClass from "discourse/helpers/body-class";
 import Category from "discourse/models/category";
 import icon from "discourse-common/helpers/d-icon";
 import i18n from "discourse-common/helpers/i18n";
-import { getOwner } from "@ember/application";
 
 export default class Breadcrumbs extends Component {
   @service router;

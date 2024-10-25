@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import icon from "discourse-common/helpers/d-icon";
 import SearchMenu from "discourse/components/search-menu";
+import icon from "discourse-common/helpers/d-icon";
 
 export default class HeaderSearch extends Component {
   <template>

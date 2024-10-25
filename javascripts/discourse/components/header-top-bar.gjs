@@ -1,15 +1,15 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Notifications from "discourse/components/header/user-dropdown/notifications";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-import { tracked } from "@glimmer/tracking";
-import Notifications from "discourse/components/header/user-dropdown/notifications";
-import UserMenu from "./user-menu";
-import NavSidebar from "./nav-sidebar";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";
+import NavSidebar from "./nav-sidebar";
+import UserMenu from "./user-menu";
 
 export default class HomeHeader extends Component {
   @service site;

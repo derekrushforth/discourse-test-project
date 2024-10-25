@@ -1,10 +1,10 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
-import icon from "discourse-common/helpers/d-icon";
-import userMenuWrapper from "discourse/components/header/user-menu-wrapper";
 import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import Notifications from "discourse/components/header/user-dropdown/notifications";
+import userMenuWrapper from "discourse/components/header/user-menu-wrapper";
+import icon from "discourse-common/helpers/d-icon";
 
 export default class UserMenu extends Component {
   @service site;
