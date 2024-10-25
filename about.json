@@ -1,7 +1,7 @@
 {
-  "name": "discourse-test-theme",
+  "name": "discourse-test-project",
   "authors": "Derek Rushforth",
-  "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
+  "about_url": "https://github.com/discourse/discourse-theme-skeleton",
   "assets": {
     "spotify-font-normal": "assets/SpotifyMix-Regular.woff2",
     "spotify-font-bold": "assets/SpotifyMix-Bold.woff2",

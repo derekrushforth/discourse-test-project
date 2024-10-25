@@ -1,5 +1,3 @@
-# discourse-test-theme
+# Discourse Test Project
 
-**Theme Summary**
-
-For more information, please see: **url to meta topic**
+Boilerplate theme generated using [Discourse Theme Skeleton](https://github.com/discourse/discourse-theme-skeleton)
