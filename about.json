@@ -2,24 +2,30 @@
   "name": "discourse-test-theme",
   "authors": "Derek Rushforth",
   "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
-  "license_url": "TODO: Put your theme's LICENSE URL here",
-  "learn_more": "TODO",
-  "theme_version": "0.0.1",
   "assets": {
     "spotify-font-normal": "assets/SpotifyMix-Regular.woff2",
     "spotify-font-bold": "assets/SpotifyMix-Bold.woff2",
     "spotify-font-extra-bold": "assets/SpotifyMix-ExtraBold.woff2",
     "logo": "assets/logo-white.svg",
-    "social-instagram": "assets/instagram.svg",
-    "social-x": "assets/x.svg",
-    "social-facebook": "assets/facebook.svg",
     "header-bg-1": "assets/header-bg-1.jpg",
     "header-bg-2": "assets/header-bg-2.jpg"
   },
-  "modifiers": {
-  },
   "color_schemes": {
+    "Spotify": {
+      "primary": "000000",
+      "secondary": "ffffff",
+      "tertiary": "4b917d",
+      "quaternary": "9bf0e1",
+      "header_background": "ffffff",
+      "header_primary": "000000",
+      "highlight": "1ed760",
+      "danger": "BB1122",
+      "success": "1ed760",
+      "love": "D64000",
+      "hover": "f1f1f1",
+      "selected": "f1f1f1",
+      "button": "ff0000"
+    }
   },
-  "components": {
-  }
+  "components": {}
 }

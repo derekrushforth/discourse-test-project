@@ -15,11 +15,8 @@
 }
 
 :root {
-  --spotify-green: #1ed760;
-  --spotify-green-alt: #9bf0e1;
   --spotify-blue: #576dd6;
   --spotify-orange: #D64000;
-  --d-nav-color-active: var(--spotify-orange);
 }
 
 //-------------------------------------------
@@ -62,8 +59,8 @@ p {
 //-------------------------------------------
 
 .d-header {
-  background-color: #f1f1f1;
-  color: #000;
+  background-color: var(--d-selected);
+  color: var(--header_primary);
 
   svg {
     fill: var(--spotify-orange);
@@ -71,12 +68,7 @@ p {
 
   .d-header-mode .btn {
     background-color: var(--spotify-orange);
-    color: #fff;
-    transition: all 200ms ease-in-out;
-  }
-  .d-header-mode .btn:hover {
-    background-color: #fff;
-    color: #000;
+    color: var(--secondary);
   }
 
   .title,
@@ -113,7 +105,7 @@ p {
   border-radius: 25px 25px 0 0;
   white-space: nowrap;
   margin: 45px 15px 0;
-  color: rgba(#fff, 0.7);
+  color: rgba(var(--secondary), 0.7);
   font-size: 15px;
 
   @include at-s {
@@ -150,7 +142,7 @@ p {
   }
 
   &__item {
-    color: #fff;
+    color: var(--secondary);
   }
   &__item::before {
     content: "/\00a0";
@@ -162,15 +154,18 @@ p {
     display: none;
 
     @include at-s {
+      display: block;
+      color: var(--secondary);
+      opacity: 0.7;
       margin-right: 10px;
     }
   }
 
   a {
-    color: #fff;
+    color: var(--secondary);
   }
   a:hover {
-    color: var(--spotify-green-alt);
+    color: var(--quaternary);
   }
 }
 
@@ -181,15 +176,14 @@ p {
 .header-wrapper {
   background-attachment: scroll;
   background-clip: border-box;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--header_primary);
   background-image: url($header-bg-2);
   background-origin: padding-box;
   background-position: 0% 55%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #000;
+  background-color: var(--header-primary);
   box-sizing: border-box;
-  color: rgb(25, 20, 20);
   font-size: 15px;
   font-weight: 400;
   line-height: 25.7143px;
@@ -213,7 +207,7 @@ p {
     font-size: 27px;
     font-weight: 700;
     letter-spacing: -1px;
-    color: #fff;
+    color: var(--secondary);
     line-height: 1.2;
     text-align: center;
 
@@ -277,12 +271,12 @@ p {
 
   &_link,
   &_link:visited {
-    color: #fff;
+    color: var(--secondary);
     font-size: 16px;
     transition: color 200ms;
   }
   &_link:hover {
-    color: var(--spotify-green-alt);
+    color: var(--quaternary);
   }
 }
 
@@ -292,35 +286,35 @@ p {
 
 .user-menu {
   position: relative;
-  color: #fff;
+  color: var(--secondary);
   padding-left: 15px !important;
 
-  button svg {
-    fill: #fff;
+  & > button svg {
+    fill: var(--secondary);
     display: none;
 
     @include at-s {
       display: inline-block;
     }
   }
-  button:hover,
-  button:focus,
-  button:active,
-  button.is-active {
-    color: var(--spotify-green-alt) !important;
+  & > button:hover,
+  & > button:focus,
+  & > button:active,
+  & > button.is-active {
+    color: var(--quaternary) !important;
     background-color: transparent !important;
   }
-  button:hover svg,
-  button:focus svg,
-  button:active svg,
-  button.is-active svg {
-    fill: var(--spotify-green-alt);
+  & > button:hover svg,
+  & > button:focus svg,
+  & > button:active svg,
+  & > button.is-active svg {
+    fill: var(--quaternary);
   }
-  button:hover .avatar,
-  button:focus .avatar,
-  button:active .avatar,
-  button.is-active .avatar {
-    border-color: var(--spotify-green-alt);
+  & > button:hover .avatar,
+  & > button:focus .avatar,
+  & > button:active .avatar,
+  & > button.is-active .avatar {
+    border-color: var(--quaternary);
   }
 
   &_username {
@@ -335,7 +329,7 @@ p {
   .avatar {
     width: 40px;
     height: 40px;
-    border: 2px solid #fff;
+    border: 2px solid var(--secondary);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   }
 
@@ -386,7 +380,7 @@ p {
 
 .search-wrapper {
   position: relative;
-  background-color: #fff;
+  background-color: var(--header_background);
   margin: 0 auto;
   max-width: 550px;
   border-radius: 50px;
@@ -431,7 +425,7 @@ p {
   }
 
   .search-link:hover {
-    background-color: #f4f4f4;
+    background-color: var(--d-hover);
     border-radius: 10px;
   }
 }
@@ -444,7 +438,7 @@ p {
   margin: 25px auto 0;
   padding: 0 15px;
   max-width: 730px;
-  color: #fff;
+  color: var(--secondary);
 
   @include at-s {
     margin-top: 55px;
@@ -555,7 +549,7 @@ p {
   }
 
   &:hover svg {
-    fill: var(--spotify-green-alt);
+    fill: var(--quaternary);
   }
 }
 
@@ -593,7 +587,7 @@ p {
     fill: #fff;
   }
   .btn-nav-toggle:hover svg {
-    fill: var(--spotify-green-alt);
+    fill: var(--quaternary);
   }
 
   ul {
@@ -623,7 +617,7 @@ p {
   }
 
   li h3:hover {
-    color: var(--spotify-green-alt);
+    color: var(--quaternary);
     cursor: pointer;
   }
 
@@ -638,7 +632,7 @@ p {
     font-size: 16px;
   }
   &_sublist a:hover {
-    color: var(--spotify-green-alt);
+    color: var(--quaternary);
   }
 }
 
@@ -657,186 +651,6 @@ p {
   width: 100%;
   height: 100%;
   z-index: 1004;
-}
-
-//-------------------------------------------
-// Footer
-//-------------------------------------------
-
-.footer {
-  background-color: #000;
-  padding: 80px 0 50px;
-  color: #fff;
-
-  nav {
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-// Brand
-
-.footer_brand {
-  padding: 0 15px;
-  width: 16.66%;
-  flex: 0 0 auto;
-  min-height: 350px;
-}
-.footer_brand-link {
-  margin: 0;
-  width: 132px;
-  height: 40px;
-  display: inline-block;
-}
-.footer_brand-logo {
-  border: 0;
-  width: 100%;
-  height: 100%;
-  font: 0 / 0 a;
-  display: inline-block;
-  color: #fff;
-}
-.footer_brand-logo-g {
-  fill: currentColor;
-}
-
-// Top Footer Links
-
-.footer_top-links {
-  width: 50%;
-  flex: 0 0 auto;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: row;
-
-  dl {
-    padding: 0 15px;
-    margin: 0;
-    flex: 1 0 0%;
-  }
-
-  dt {
-    color: #919496;
-    font-size: 12px;
-    font-weight: 900;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    line-height: 1.71428571;
-    margin: 20px 0;
-  }
-
-  dd {
-    margin: 0;
-    line-height: 1.71428571;
-  }
-
-  dd a {
-    padding: 3px 0 15px;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.5;
-    text-decoration: none;
-    color: #fff;
-  }
-
-  dd a:hover {
-    color: var(--spotify-green);
-  }
-}
-
-// Social
-
-.footer_social {
-  margin: 0 15px 0 auto;
-
-  ul {
-    margin-top: 0;
-    margin-bottom: 13px;
-    display: flex;
-    padding-left: 2rem;
-  }
-
-  li {
-    margin-right: 15px;
-    display: inline-block;
-  }
-
-  a {
-    border-radius: 50%;
-    background-color: #222326;
-    width: 54px;
-    aspect-ratio: 1 / 1;
-    display: inline-flex;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-  }
-
-  &-icon {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    background-repeat: no-repeat;
-  }
-  &-icon:hover {
-    background-color: var(--spotify-green);
-  }
-}
-
-.icon-instagram {
-  background-image: url($social-instagram);
-}
-.icon-x {
-  background-image: url($social-x);
-}
-.icon-facebook {
-  background-image: url($social-facebook);
-}
-
-.footer_bottom-links {
-  width: 100%;
-  display: flex;
-
-  ul {
-    margin: 0 45px 0 0;
-    padding: 0 0 0 15px;
-  }
-
-  li {
-    margin-right: 24px;
-    padding: 0;
-    list-style: none;
-    display: inline-block;
-    line-height: normal;
-    letter-spacing: 0;
-  }
-
-  a {
-    padding: 1em 0;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    text-decoration: none;
-    color: #919496;
-  }
-
-  a:hover {
-    color: var(--spotify-green);
-  }
-}
-
-.footer_copyright {
-  margin: 0 15px 0 auto;
-  padding: 1em 0;
-  flex-shrink: 0;
-  font-size: 12px;
-  color: #919496;
 }
 
 //-------------------------------------------
