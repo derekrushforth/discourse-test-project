@@ -57,6 +57,9 @@ export default class UserMenu extends Component {
       </li>
     {{else}}
       <li>
+        <a href="/signup" class="navbar_link">Sign Up</a>
+      </li>
+      <li>
         <a href="/login" class="navbar_link">Log In</a>
       </li>
     {{/if}}
