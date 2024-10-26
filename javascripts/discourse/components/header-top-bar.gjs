@@ -29,17 +29,17 @@ export default class HomeHeader extends Component {
               <img
                 src={{this.siteSettings.logo}}
                 alt="Spotify Community"
-                class="navbar_logo"
+                class="navbar__logo"
               />
             {{/if}}
           </a>
         </h1>
 
-        <ul class="navbar_items">
+        <ul class="navbar__items">
           <li>
             <a
               href="https://www.spotify.com/us/premium/?checkout=false"
-              class="navbar_link"
+              class="navbar__link"
             >Get Premium</a>
           </li>
           <UserMenu />

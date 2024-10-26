@@ -29,7 +29,7 @@ export default class HomeHeader extends Component {
     {{#if this.isHomePage}}
       <div class="header-wrapper">
         <HeaderTopBar />
-        <div class="header-wrapper_hero">
+        <div class="header-wrapper__hero">
           <h2>Find solutions, share ideas<br />and discuss music</h2>
           <div class="main-search main-search--home">
             <HeaderSearch />

@@ -15,8 +15,8 @@ export default class NavSidebar extends Component {
   @action
   handleTitleClick(event) {
     const li = event.target.closest("li");
-    const ul = li.querySelector("ul.nav-sidebar_sublist");
-    const allSublists = document.querySelectorAll("ul.nav-sidebar_sublist");
+    const ul = li.querySelector("ul.nav-sidebar__sublist");
+    const allSublists = document.querySelectorAll("ul.nav-sidebar__sublist");
 
     // Check for sublist
     if (ul) {
@@ -71,13 +71,13 @@ export default class NavSidebar extends Component {
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Help</span></h3>
-          <ul class="nav-sidebar_sublist" style="display:none">
+          <ul class="nav-sidebar__sublist" style="display:none">
             <li><a href="#">TODO: List subtopics</a></li>
           </ul>
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Chat</span></h3>
-          <ul class="nav-sidebar_sublist" style="display:none">
+          <ul class="nav-sidebar__sublist" style="display:none">
             <li><a href="#">TODO: List subtopics</a></li>
           </ul>
         </li>
@@ -86,13 +86,13 @@ export default class NavSidebar extends Component {
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Ideas</span></h3>
-          <ul class="nav-sidebar_sublist" style="display:none">
+          <ul class="nav-sidebar__sublist" style="display:none">
             <li><a href="#">TODO: List subtopics</a></li>
           </ul>
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Vault</span></h3>
-          <ul class="nav-sidebar_sublist" style="display:none">
+          <ul class="nav-sidebar__sublist" style="display:none">
             <li><a href="#">TODO: List subtopics</a></li>
           </ul>
         </li>

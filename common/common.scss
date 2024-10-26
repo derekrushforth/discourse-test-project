@@ -214,11 +214,11 @@ p {
     transition: all 250ms ease-in;
   }
 
-  &_hero {
+  &__hero {
     padding: 15px 0;
   }
 
-  &_hero h2 {
+  &__hero h2 {
     font-size: 27px;
     font-weight: 700;
     letter-spacing: -1px;
@@ -251,7 +251,7 @@ p {
     margin: 0;
   }
 
-  &_logo {
+  &__logo {
     display: block;
     width: 150px;
     height: 40px;
@@ -262,21 +262,21 @@ p {
     }
   }
 
-  &_items {
+  &__items {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
     list-style: none;
   }
-  &_items li {
+  &__items li {
     padding: 0 5px;
 
     @include at-s {
       padding: 0 25px;
     }
   }
-  &_items li:first-child {
+  &__items li:first-child {
     display: none;
 
     @include at-s {
@@ -284,13 +284,13 @@ p {
     }
   }
 
-  &_link,
-  &_link:visited {
+  &__link,
+  &__link:visited {
     color: var(--secondary);
     font-size: 16px;
     transition: color 200ms;
   }
-  &_link:hover {
+  &__link:hover {
     color: var(--quaternary);
   }
 }
@@ -332,7 +332,7 @@ p {
     border-color: var(--quaternary);
   }
 
-  &_username {
+  &__username {
     padding: 0 6px 0 10px;
     display: none;
 
@@ -495,7 +495,7 @@ p {
     background-color: rgba(255, 255, 255, 0.15);
   }
 
-  &_content {
+  &__content {
     flex: 1;
     text-align: left;
 
@@ -526,7 +526,7 @@ p {
     }
   }
 
-  &_icon {
+  &__icon {
     margin: 0 20px;
     background-color: var(--secondary);
     border-radius: 50%;
@@ -542,7 +542,7 @@ p {
       height: 120px;
     }
   }
-  &_icon svg {
+  &__icon svg {
     font-size: 30px;
     color: var(--spotify-orange);
 
@@ -648,17 +648,17 @@ p {
     cursor: pointer;
   }
 
-  &_sublist {
+  &__sublist {
     margin-top: 10px;
   }
-  &_sublist li {
+  &__sublist li {
     margin: 0;
   }
-  &_sublist a {
+  &__sublist a {
     color: var(--secondary);
     font-size: 16px;
   }
-  &_sublist a:hover {
+  &__sublist a:hover {
     color: var(--quaternary);
   }
 }

@@ -47,7 +47,7 @@ export default class UserMenu extends Component {
           type="button"
         >
           <Notifications @active={{this.showUserMenu}} />
-          <span class="user-menu_username">{{this.currentUser.username}}</span>
+          <span class="user_menu__username">{{this.currentUser.username}}</span>
           {{icon "caret-down"}}
         </button>
 
@@ -57,10 +57,10 @@ export default class UserMenu extends Component {
       </li>
     {{else}}
       <li>
-        <a href="/signup" class="navbar_link">Sign Up</a>
+        <a href="/signup" class="navbar__link">Sign Up</a>
       </li>
       <li>
-        <a href="/login" class="navbar_link">Log In</a>
+        <a href="/login" class="navbar__link">Log In</a>
       </li>
     {{/if}}
   </template>
