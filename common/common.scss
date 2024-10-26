@@ -437,6 +437,7 @@ p {
   }
   .show-advanced-search svg {
     font-size: 20px;
+    margin-top: 3px;
   }
 
   .search-link:hover {
@@ -526,21 +527,32 @@ p {
   }
 
   &_icon {
-    max-width: 60px;
     margin: 0 20px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
 
     @include at-s {
       margin: 0 auto;
-      max-width: 120px;
+      width: 120px;
+      height: 120px;
     }
   }
   &_icon svg {
-    margin: 0 auto 5px;
-    font-size: 60px;
+    font-size: 30px;
+    color: var(--spotify-orange);
+
+    .logged-in & {
+      color: var(--spotify-blue);
+    }
 
     @include at-s {
-      margin: 0 auto 25px;
-      font-size: 120px;
+      // margin: 0 auto 25px;
+      font-size: 60px;
     }
   }
 }

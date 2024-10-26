@@ -9,7 +9,7 @@ export default class HomeHeader extends Component {
         <li>
           <a href="/categories">
             <div class="home-categories_icon">
-              {{icon "question-circle"}}
+              {{icon "question"}}
             </div>
             <div class="home-categories_content">
               <h3>Help</h3>
@@ -20,7 +20,7 @@ export default class HomeHeader extends Component {
         <li>
           <a href="/categories">
             <div class="home-categories_icon">
-              {{icon "question-circle"}}
+              {{icon "comment"}}
             </div>
             <div class="home-categories_content">
               <h3>Chat</h3>
@@ -31,7 +31,7 @@ export default class HomeHeader extends Component {
         <li>
           <a href="/categories">
             <div class="home-categories_icon">
-              {{icon "question-circle"}}
+              {{icon "plug"}}
             </div>
             <div class="home-categories_content">
               <h3>Ideas</h3>
