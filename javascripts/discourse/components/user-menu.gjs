@@ -44,6 +44,7 @@ export default class UserMenu extends Component {
           aria-haspopup="true"
           aria-expanded={{this.showUserMenu}}
           onClick={{this.toggleUserMenu}}
+          type="button"
         >
           <Notifications @active={{this.showUserMenu}} />
           <span class="user-menu_username">{{this.currentUser.username}}</span>

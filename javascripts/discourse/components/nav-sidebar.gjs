@@ -54,6 +54,7 @@ export default class NavSidebar extends Component {
         aria-expanded={{@isOpen}}
         aria-controls="nav-sidebar"
         onClick={{this.closeNavSidebar}}
+        type="button"
       >
         {{icon "times"}}
       </button>

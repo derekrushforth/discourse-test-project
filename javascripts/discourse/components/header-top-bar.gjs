@@ -27,7 +27,7 @@ export default class HomeHeader extends Component {
           <a href="/">
             {{#if this.siteSettings.logo}}
               <img
-                src="{{this.siteSettings.logo}}"
+                src={{this.siteSettings.logo}}
                 alt="Spotify Community"
                 class="navbar_logo"
               />
@@ -50,6 +50,7 @@ export default class HomeHeader extends Component {
               aria-expanded={{this.showNavSidebar}}
               aria-controls="nav-sidebar"
               onClick={{this.toggleNavSidebar}}
+              type="button"
             >
               {{icon "bars"}}
             </button>

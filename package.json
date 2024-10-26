@@ -9,6 +9,7 @@
   },
   "scripts": {
     "lint-fix": "eslint . --fix",
+    "ember-lint": "ember-template-lint .",
     "format": "prettier --config .prettierrc.cjs --write ."
   },
   "engines": {
