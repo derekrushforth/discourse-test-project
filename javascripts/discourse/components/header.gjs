@@ -5,9 +5,9 @@ import { defaultHomepage } from "discourse/lib/utilities";
 import Breadcrumbs from "./breadcrumbs";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";
-import HomeCategories from "./home-categories";
+import HeaderCategories from "./header-categories";
 
-export default class HomeHeader extends Component {
+export default class Header extends Component {
   @service site;
   @service router;
   @service siteSettings;
@@ -35,7 +35,7 @@ export default class HomeHeader extends Component {
             <HeaderSearch />
           </div>
         </div>
-        <HomeCategories />
+        <HeaderCategories />
       </div>
     {{else}}
       <div class="header-wrapper header-wrapper--slim">

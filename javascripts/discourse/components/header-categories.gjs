@@ -2,7 +2,7 @@
 import Component from "@glimmer/component";
 import icon from "discourse-common/helpers/d-icon";
 
-export default class HomeHeader extends Component {
+export default class HeaderCategories extends Component {
   <template>
     <nav class="home-categories">
       <ul>

@@ -6,7 +6,7 @@ import icon from "discourse-common/helpers/d-icon";
 import NavSidebar from "./nav-sidebar";
 import UserMenu from "./user-menu";
 
-export default class HomeHeader extends Component {
+export default class HeaderTopBar extends Component {
   @service site;
   @service router;
   @service siteSettings;
