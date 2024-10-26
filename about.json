@@ -1,7 +1,7 @@
 {
   "name": "discourse-test-project",
   "authors": "Derek Rushforth",
-  "about_url": "https://github.com/discourse/discourse-theme-skeleton",
+  "about_url": "https://github.com/derekrushforth/discourse-test-project",
   "assets": {
     "spotify-font-normal": "assets/SpotifyMix-Regular.woff2",
     "spotify-font-bold": "assets/SpotifyMix-Bold.woff2",
