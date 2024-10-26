@@ -23,7 +23,7 @@ export default class NavSidebar extends Component {
       // If sublist is hidden
       if (ul.style.display === "none") {
         // Hide all other sublists
-        allSublists.forEach(sublist => {
+        allSublists.forEach((sublist) => {
           sublist.style.display = "none";
         });
 
