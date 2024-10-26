@@ -2,11 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import Notifications from "discourse/components/header/user-dropdown/notifications";
-import { defaultHomepage } from "discourse/lib/utilities";
 import icon from "discourse-common/helpers/d-icon";
-import HeaderSearch from "./header-search";
-import HeaderTopBar from "./header-top-bar";
 import NavSidebar from "./nav-sidebar";
 import UserMenu from "./user-menu";
 

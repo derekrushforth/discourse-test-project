@@ -1,5 +1,5 @@
+/* eslint-disable ember/no-empty-glimmer-component-classes */
 import Component from "@glimmer/component";
-import { action } from "@ember/object";
 import SearchMenu from "discourse/components/search-menu";
 import icon from "discourse-common/helpers/d-icon";
 

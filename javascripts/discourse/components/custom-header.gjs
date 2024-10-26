@@ -1,9 +1,7 @@
 import Component from "@glimmer/component";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
-import icon from "discourse-common/helpers/d-icon";
 import Breadcrumbs from "./breadcrumbs";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";

@@ -67,7 +67,7 @@ p {
 
   svg {
     fill: var(--spotify-orange);
-    
+
     .logged-in & {
       fill: var(--spotify-blue);
     }
@@ -200,7 +200,7 @@ p {
   line-height: 25.7143px;
   text-align: left;
   text-size-adjust: 100%;
-  
+
   .logged-in & {
     background-image: url($header-bg-1);
   }
@@ -725,7 +725,7 @@ p {
 
   .logged-in & {
     background-color: var(--spotify-blue);
-    
+
     &:active,
     &:focus,
     &:hover {

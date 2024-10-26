@@ -15,10 +15,9 @@ export default class UserMenu extends Component {
   @tracked outsideRecentlyClicked = false;
 
   @action
-  toggleUserMenu(event) {
+  toggleUserMenu() {
     // Simple debounce to prevent multiple calls(from outside click) if user menu is already open
     if (this.outsideRecentlyClicked) {
-      console.log("outside recently clicked");
       return;
     }
 
@@ -26,7 +25,7 @@ export default class UserMenu extends Component {
   }
 
   @action
-  userMenuOutsideClick(event) {
+  userMenuOutsideClick() {
     this.showUserMenu = false;
     this.outsideRecentlyClicked = true;
 

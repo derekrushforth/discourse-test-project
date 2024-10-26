@@ -4,8 +4,6 @@
 import Component from "@glimmer/component";
 import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
-import { or } from "truth-helpers";
-import bodyClass from "discourse/helpers/body-class";
 import Category from "discourse/models/category";
 import icon from "discourse-common/helpers/d-icon";
 import i18n from "discourse-common/helpers/i18n";
@@ -57,6 +55,7 @@ export default class Breadcrumbs extends Component {
         if (topicController && topicController.model) {
           return topicController.model.title;
         }
+        break;
       default:
         return null;
     }
