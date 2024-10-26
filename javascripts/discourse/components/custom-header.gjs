@@ -13,12 +13,21 @@ export default class HomeHeader extends Component {
   @service site;
   @service router;
   @service siteSettings;
+  @service currentUser;
 
   get isHomePage() {
     return this.router.currentRouteName === `discovery.${defaultHomepage()}`;
   }
 
+  get isLoggedIn() {
+    return !!this.currentUser;
+  }
+
   <template>
+    {{#if this.isLoggedIn}}
+      {{bodyClass "logged-in"}}
+    {{/if}}
+
     {{#if this.isHomePage}}
       <div class="header-wrapper">
         <HeaderTopBar />

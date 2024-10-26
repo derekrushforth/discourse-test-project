@@ -16,7 +16,10 @@
 
 :root {
   --spotify-blue: #576dd6;
+  --spotify-blue-alt: #6f83e8;
   --spotify-orange: #d64000;
+  --spotify-orange-alt: #ff7439;
+  --notification: #eb1e32;
 }
 
 //-------------------------------------------
@@ -64,11 +67,19 @@ p {
 
   svg {
     fill: var(--spotify-orange);
+    
+    .logged-in & {
+      fill: var(--spotify-blue);
+    }
   }
 
   .d-header-mode .btn {
     background-color: var(--spotify-orange);
     color: var(--secondary);
+
+    .logged-in & {
+      background-color: var(--spotify-blue);
+    }
   }
 
   .title,
@@ -189,6 +200,10 @@ p {
   line-height: 25.7143px;
   text-align: left;
   text-size-adjust: 100%;
+  
+  .logged-in & {
+    background-image: url($header-bg-1);
+  }
 
   @include at-s {
     padding-bottom: 55px;
@@ -350,7 +365,7 @@ p {
     position: absolute;
     top: 2px;
     left: 10px;
-    background-color: #eb1e32;
+    background-color: var(--notification);
     padding: 3px 7px;
     min-width: 10px;
     font-size: 14px;
@@ -418,7 +433,7 @@ p {
     margin-right: 15px;
   }
   .show-advanced-search:active {
-    background-color: transparent !important;
+    background-image: none !important;
   }
   .show-advanced-search svg {
     font-size: 20px;
@@ -466,7 +481,7 @@ p {
   a {
     display: flex;
     flex-flow: wrap;
-    color: #fff;
+    color: var(--secondary);
     padding: 15px 0;
     border-radius: 15px;
     transition: all 300ms ease;
@@ -544,7 +559,7 @@ p {
     font-size: var(--font-up-4);
     line-height: var(--line-height-large);
     display: inline-block;
-    fill: #fff;
+    fill: var(--secondary);
     font-size: 35px;
   }
 
@@ -555,7 +570,7 @@ p {
 
 .nav-sidebar {
   display: block;
-  background-color: #000;
+  background-color: var(--header_primary);
   height: 100vh;
   width: 100%;
   overflow-y: auto;
@@ -584,7 +599,7 @@ p {
     z-index: 1;
   }
   .btn-nav-toggle svg {
-    fill: #fff;
+    fill: var(--secondary);
   }
   .btn-nav-toggle:hover svg {
     fill: var(--quaternary);
@@ -602,7 +617,7 @@ p {
   }
 
   li h3 {
-    color: #fff;
+    color: var(--secondary);
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 0;
@@ -628,7 +643,7 @@ p {
     margin: 0;
   }
   &_sublist a {
-    color: #fff;
+    color: var(--secondary);
     font-size: 16px;
   }
   &_sublist a:hover {
@@ -644,7 +659,7 @@ p {
   opacity: 0;
   pointer-events: none;
   transition: all 300ms;
-  background: #000;
+  background: var(--header_primary);
   position: fixed;
   top: 0;
   left: 0;
@@ -700,12 +715,22 @@ p {
   max-width: $small-width;
 }
 .btn-primary {
-  background-color: #d64000;
+  background-color: var(--spotify-orange);
 
   &:active,
   &:focus,
   &:hover {
-    background-color: #ff7439 !important;
+    background-color: var(--spotify-orange-alt) !important;
+  }
+
+  .logged-in & {
+    background-color: var(--spotify-blue);
+    
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--spotify-blue-alt) !important;
+    }
   }
 }
 
