@@ -2,11 +2,11 @@ import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 import bodyClass from "discourse/helpers/body-class";
 import { defaultHomepage } from "discourse/lib/utilities";
+import Stats from "../components/stats";
 import Breadcrumbs from "./breadcrumbs";
 import HeaderCategories from "./header-categories";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";
-import Stats from "../components/stats";
 
 export default class Header extends Component {
   @service site;

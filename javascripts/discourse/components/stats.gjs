@@ -1,9 +1,15 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default class Stats extends Component {
+  // Static mapping to topic ids
+  // TODO: This should likely be configured from the admin area
+  static CATEGORIES = {
+    ideas: { slug: "general", id: 4 },
+    questions: { slug: "site-feedback", id: 2 },
+  };
   @service store;
   @service siteSettings;
 
@@ -13,13 +19,11 @@ export default class Stats extends Component {
   @tracked questionCount = 0;
   @tracked conversationCount = 0;
 
-  // Static mapping to topic ids
-  // TODO: This should likely be configured from the admin area
-  static CATEGORIES = {
-    ideas: { slug: "general", id: 4 },
-    questions: { slug: "site-feedback", id: 2 },
-  };
-
+  constructor() {
+    super(...arguments);
+    this.lastWeek = this.getLastWeekDate();
+    this.initializeStats();
+  }
   get statsIconUrl() {
     return settings.theme_uploads["stats-icon"];
   }
@@ -28,12 +32,6 @@ export default class Stats extends Component {
     return (
       this.conversationCount > 0 && this.questionCount > 0 && this.ideaCount > 0
     );
-  }
-
-  constructor() {
-    super(...arguments);
-    this.lastWeek = this.getLastWeekDate();
-    this.initializeStats();
   }
 
   getLastWeekDate() {
@@ -74,7 +72,7 @@ export default class Stats extends Component {
 
       this.ideaCount = this.filterByDate(data.topic_list.topics || []).length;
     } catch (error) {
-      console.error("Error loading ideas:", error);
+      throw new Error("Error loading ideas:", error);
     }
   }
 
@@ -90,7 +88,7 @@ export default class Stats extends Component {
         "last_posted_at"
       ).length;
     } catch (error) {
-      console.error("Error loading questions:", error);
+      throw new Error("Error loading questions", error);
     }
   }
 
@@ -104,7 +102,7 @@ export default class Stats extends Component {
         data.latest_posts || []
       ).length;
     } catch (error) {
-      console.error("Error loading conversations:", error);
+      throw new Error("Error loading conversations", error);
     }
   }
 
