@@ -6,6 +6,7 @@ import Breadcrumbs from "./breadcrumbs";
 import HeaderCategories from "./header-categories";
 import HeaderSearch from "./header-search";
 import HeaderTopBar from "./header-top-bar";
+import Stats from "../components/stats";
 
 export default class Header extends Component {
   @service site;
@@ -37,6 +38,7 @@ export default class Header extends Component {
         </div>
         <HeaderCategories />
       </div>
+      <Stats />
     {{else}}
       <div class="header-wrapper header-wrapper--slim">
         <HeaderTopBar />

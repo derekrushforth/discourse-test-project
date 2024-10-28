@@ -681,6 +681,54 @@ p {
 }
 
 //-------------------------------------------
+// Stats
+//-------------------------------------------
+
+.stats {
+  display: none;
+  background-color: #1d2b3a;
+  color: var(--secondary);
+
+  @include at-s {
+    display: block;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 675px;
+    width: 100%;
+  }
+
+  &__icon {
+    height: 80px;
+    margin-right: 40px;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  p {
+    flex: 1;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+
+  span {
+    font-weight: bold;
+    color: var(--success);
+  }
+
+  &--loaded {
+    animation: slideIn 500ms ease-in forwards;
+    overflow: hidden;
+  }
+}
+
+//-------------------------------------------
 // Topic
 //-------------------------------------------
 
@@ -759,5 +807,18 @@ p {
 
   .svg-icon {
     fill: #c1c1c1;
+  }
+}
+
+//-------------------------------------------
+// Animations
+//-------------------------------------------
+
+@keyframes slideIn {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 1000px;
   }
 }
