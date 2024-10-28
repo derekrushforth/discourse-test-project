@@ -66,6 +66,12 @@ export default class Breadcrumbs extends Component {
       case this.router.currentRouteName.includes("category") ||
         this.router.currentRouteName.includes("Category"):
         return this.parentCategoryName;
+      case this.router.currentRouteName.includes("topic.fromParams"):
+        const topicController = getOwner(this).lookup("controller:topic");
+        if (topicController?.model?.category) {
+          return topicController.model.category.name;
+        }
+        return null;
       default:
         return null;
     }
