@@ -4,12 +4,6 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 
 export default class Stats extends Component {
-  // Static mapping to topic ids
-  // TODO: This should likely be configured from the admin area
-  static CATEGORIES = {
-    ideas: { slug: "general", id: 4 },
-    questions: { slug: "site-feedback", id: 2 },
-  };
   @service store;
   @service siteSettings;
 
@@ -18,6 +12,12 @@ export default class Stats extends Component {
   @tracked ideaCount = 0;
   @tracked questionCount = 0;
   @tracked conversationCount = 0;
+
+  // Map settings values from categories
+  @tracked ideasCategorySlug = settings["stats_ideas_category_slug"];
+  @tracked ideasCategoryID = settings["stats_ideas_category_id"];
+  @tracked questionsCategorySlug = settings["stats_questions_category_slug"];
+  @tracked questionsCategoryID = settings["stats_questions_category_id"];
 
   constructor() {
     super(...arguments);
@@ -67,8 +67,9 @@ export default class Stats extends Component {
   @action
   async loadIdeas() {
     try {
-      const { slug, id } = Stats.CATEGORIES.ideas;
-      const data = await this.fetchData(`/c/${slug}/${id}.json`);
+      const data = await this.fetchData(
+        `/c/${this.ideasCategorySlug}/${this.ideasCategoryID}.json`
+      );
 
       this.ideaCount = this.filterByDate(data.topic_list.topics || []).length;
     } catch (error) {
@@ -80,8 +81,9 @@ export default class Stats extends Component {
   @action
   async loadQuestions() {
     try {
-      const { slug, id } = Stats.CATEGORIES.questions;
-      const data = await this.fetchData(`/c/${slug}/${id}.json`);
+      const data = await this.fetchData(
+        `/c/${this.questionsCategorySlug}/${this.questionsCategoryID}.json`
+      );
 
       this.questionCount = this.filterByDate(
         data.topic_list.topics || [],

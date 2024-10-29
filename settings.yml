@@ -1,2 +1,19 @@
-example_setting:
-  default: true
+stats_ideas_category_slug:
+  default: "ideas"
+  type: string
+  description: "Category slug for the ideas category request on the stats component."
+
+stats_ideas_category_id:
+  default: 1
+  type: integer
+  description: "Category ID for the ideas category"
+
+stats_questions_category_slug:
+  default: "questions"
+  type: string
+  description: "Category slug for the questions category request on the stats component."
+
+stats_questions_category_id:
+  default: 2
+  type: integer
+  description: "Category ID for the questions category"
