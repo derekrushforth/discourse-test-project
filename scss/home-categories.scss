@@ -66,7 +66,7 @@
 
   p {
     margin: 0;
-    font-size: 15px;
+    font-size: var(--font-0);
 
     @include at-s {
       margin: 0 auto;
@@ -91,7 +91,7 @@
     }
   }
   &__icon svg {
-    font-size: 30px;
+    font-size: var(--font-up-5);
     color: var(--spotify-orange);
 
     .logged-in & {
@@ -99,7 +99,6 @@
     }
 
     @include at-s {
-      // margin: 0 auto 25px;
       font-size: 60px;
     }
   }

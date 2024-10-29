@@ -9,10 +9,8 @@
   background-size: cover;
   background-color: var(--header-primary);
   box-sizing: border-box;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: var(--font-0);
   line-height: 25.7143px;
-  text-align: left;
   text-size-adjust: 100%;
 
   .logged-in & {
@@ -37,7 +35,7 @@
     font-weight: 700;
     letter-spacing: -1px;
     color: var(--secondary);
-    line-height: 1.2;
+    line-height: var(--line-height-medium);
     text-align: center;
 
     @include at-s {
