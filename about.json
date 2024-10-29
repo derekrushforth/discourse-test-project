@@ -5,7 +5,6 @@
   "assets": {
     "spotify-font-normal": "assets/SpotifyMix-Regular.woff2",
     "spotify-font-bold": "assets/SpotifyMix-Bold.woff2",
-    "spotify-font-extra-bold": "assets/SpotifyMix-ExtraBold.woff2",
     "logo": "assets/logo-white.svg",
     "header-bg-1": "assets/header-bg-1.jpg",
     "header-bg-2": "assets/header-bg-2.jpg",
