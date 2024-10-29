@@ -72,13 +72,32 @@ export default class NavSidebar extends Component {
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Help</span></h3>
           <ul class="nav-sidebar__sublist" style="display:none">
-            <li><a href="#">TODO: List subtopics</a></li>
+            <li><a href="/categories">Announcements</a></li>
+            <li><a href="/categories">Ongoing Issues</a></li>
+            <li><a href="/categories">Accounts</a></li>
+            <li><a href="/categories">Subscriptions</a></li>
+            <li><a href="/categories">Premium Family</a></li>
+            <li><a href="/categories">Premium Student</a></li>
+            <li><a href="/categories">Your Library</a></li>
+            <li><a href="/categories">iOS (iPhone, iPad)</a></li>
+            <li><a href="/categories">Android</a></li>
+            <li><a href="/categories">Desktop (Windows)</a></li>
+            <li><a href="/categories">Desktop (Mac)</a></li>
+            <li><a href="/categories">Desktop (Linux)</a></li>
+            <li><a href="/categories">Content Questions</a></li>
+            <li><a href="/categories">Car Thing</a></li>
+            <li><a href="/categories">Other (Podcasts, Partners, etc.)</a></li>
+            <li><a href="/categories">Spotify for Developers</a></li>
           </ul>
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Chat</span></h3>
           <ul class="nav-sidebar__sublist" style="display:none">
-            <li><a href="#">TODO: List subtopics</a></li>
+            <li><a href="/categories">Music Exchange</a></li>
+            <li><a href="/categories">Music Discussion</a></li>
+            <li><a href="/categories">Discovery &amp; Promo</a></li>
+            <li><a href="/categories">Social &amp; Random</a></li>
+            <li><a href="/categories">Podcast Discussion</a></li>
           </ul>
         </li>
         <li data-url="/categories">
@@ -87,13 +106,16 @@ export default class NavSidebar extends Component {
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Ideas</span></h3>
           <ul class="nav-sidebar__sublist" style="display:none">
-            <li><a href="#">TODO: List subtopics</a></li>
+            <li><a href="/categories">Implemented Ideas</a></li>
+            <li><a href="/categories">Live Ideas</a></li>
+            <li><a href="/categories">Closed Ideas</a></li>
           </ul>
         </li>
         <li data-url="/categories">
           <h3 onClick={{this.handleTitleClick}}><span>Vault</span></h3>
           <ul class="nav-sidebar__sublist" style="display:none">
-            <li><a href="#">TODO: List subtopics</a></li>
+            <li><a href="/categories">The Blog Vault</a></li>
+            <li><a href="/categories">App &amp; Features</a></li>
           </ul>
         </li>
       </ul>
