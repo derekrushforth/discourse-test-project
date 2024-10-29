@@ -9,7 +9,8 @@
     "logo": "assets/logo-white.svg",
     "header-bg-1": "assets/header-bg-1.jpg",
     "header-bg-2": "assets/header-bg-2.jpg",
-    "stats-icon": "assets/stats-icon.svg"
+    "stats-icon": "assets/stats-icon.svg",
+    "icons-sprite": "assets/idea-icon.svg"
   },
   "color_schemes": {
     "Spotify": {

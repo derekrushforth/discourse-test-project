@@ -31,7 +31,7 @@ export default class HeaderCategories extends Component {
         <li>
           <a href="/categories">
             <div class="home-categories__icon">
-              {{icon "plug"}}
+              {{icon "idea"}}
             </div>
             <div class="home-categories__content">
               <h3>Ideas</h3>
