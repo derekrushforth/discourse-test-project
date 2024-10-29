@@ -16,6 +16,11 @@ export default class UserMenu extends Component {
 
   @action
   toggleUserMenu() {
+    if (this.site.mobileView) {
+      this.router.transitionTo('user.summary', this.currentUser.username);
+      return;
+    }
+
     // Simple debounce to prevent multiple calls(from outside click) if user menu is already open
     if (this.outsideRecentlyClicked) {
       return;
