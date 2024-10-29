@@ -11,7 +11,9 @@ export default class Breadcrumbs extends Component {
   @service router;
 
   getCategoryInfo(category) {
-    if (!category) {return null;}
+    if (!category) {
+      return null;
+    }
     return {
       name: category.name,
       url: `/c/${category.slug}/${category.id}`,
