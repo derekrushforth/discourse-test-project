@@ -47,7 +47,7 @@ export default class UserMenu extends Component {
           type="button"
         >
           <Notifications @active={{this.showUserMenu}} />
-          <span class="user_menu__username">{{this.currentUser.username}}</span>
+          <span class="user-menu__username">{{this.currentUser.username}}</span>
           {{icon "caret-down"}}
         </button>
 
