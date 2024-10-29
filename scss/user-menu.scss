@@ -1,0 +1,77 @@
+.user-menu {
+  position: relative;
+  color: var(--secondary);
+  padding-left: 15px !important;
+
+  & > button svg {
+    fill: var(--secondary);
+    display: none;
+
+    @include at-s {
+      display: inline-block;
+    }
+  }
+  & > button:hover,
+  & > button:focus,
+  & > button:active,
+  & > button.is-active {
+    color: var(--quaternary) !important;
+    background-color: transparent !important;
+  }
+  & > button:hover svg,
+  & > button:focus svg,
+  & > button:active svg,
+  & > button.is-active svg {
+    fill: var(--quaternary);
+  }
+  & > button:hover .avatar,
+  & > button:focus .avatar,
+  & > button:active .avatar,
+  & > button.is-active .avatar {
+    border-color: var(--quaternary);
+  }
+
+  &__username {
+    padding: 0 6px 0 10px;
+    display: none;
+
+    @include at-s {
+      display: inline-block;
+    }
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--secondary);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-menu-dropdown-wrapper {
+    position: relative;
+    z-index: 1005;
+
+    .user-menu {
+      top: 10px;
+    }
+
+    .user-menu .panel-body {
+      max-height: 500px;
+    }
+  }
+
+  .badge-notification {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    background-color: var(--notification);
+    padding: 3px 7px;
+    min-width: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+  }
+}

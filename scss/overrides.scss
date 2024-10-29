@@ -1,0 +1,130 @@
+//-------------------------------------------
+// Global header elements
+//-------------------------------------------
+
+.d-header {
+  background-color: var(--d-selected);
+  color: var(--header_primary);
+
+  svg {
+    fill: var(--spotify-orange);
+
+    .logged-in & {
+      fill: var(--spotify-blue);
+    }
+  }
+
+  .d-header-mode .btn {
+    background-color: var(--spotify-orange);
+    color: var(--secondary);
+
+    .logged-in & {
+      background-color: var(--spotify-blue);
+    }
+  }
+
+  .title,
+  .header-buttons {
+    display: none;
+  }
+
+  #current-user,
+  .search-dropdown {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  // Show elements when header is in sticky mode
+  // TODO: Is there a class hook or helper for this?
+  .extra-info-wrapper ~ .panel .search-dropdown,
+  .extra-info-wrapper ~ .panel #current-user {
+    display: block;
+    opacity: 1;
+    transition: all 200ms;
+    overflow: auto;
+    width: auto;
+  }
+}
+
+//-------------------------------------------
+// Topic
+//-------------------------------------------
+
+#topic-title h1 {
+  font-size: 40px !important;
+}
+
+.topic-body {
+  border-top: none;
+}
+.topic-body .cooked {
+  line-height: 1.7;
+  font-size: 15px;
+
+  h2 {
+    margin: 2.5rem 0 1rem;
+  }
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  ul li .list-item-checkbox {
+    margin-right: 5px;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.topic-avatar {
+  border-top: none;
+}
+
+//-------------------------------------------
+// Generic
+//-------------------------------------------
+
+.btn {
+  border-radius: 50px;
+  max-width: $small-width;
+}
+.btn-primary {
+  background-color: var(--spotify-orange);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: var(--spotify-orange-alt) !important;
+  }
+
+  .logged-in & {
+    background-color: var(--spotify-blue);
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--spotify-blue-alt) !important;
+    }
+  }
+}
+
+#reply-control {
+  z-index: 1005;
+}
+
+.header-sidebar-toggle button {
+  margin-right: 0;
+}
+
+.sidebar-section-wrapper .sidebar-section-link {
+  color: #000;
+
+  .svg-icon {
+    fill: #c1c1c1;
+  }
+}

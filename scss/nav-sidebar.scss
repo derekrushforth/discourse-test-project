@@ -1,0 +1,118 @@
+.btn-nav-toggle {
+  &:focus,
+  &:active {
+    background-color: transparent !important;
+  }
+
+  svg {
+    font-size: var(--font-up-4);
+    line-height: var(--line-height-large);
+    display: inline-block;
+    fill: var(--secondary);
+    font-size: 35px;
+  }
+
+  &:hover svg {
+    fill: var(--quaternary);
+  }
+}
+
+.nav-sidebar {
+  display: block;
+  background-color: var(--header_primary);
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  padding: 38px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1005;
+  transform: translateX(100%);
+  transition: transform 400ms ease-in;
+  box-sizing: border-box;
+
+  @include at-s {
+    max-width: 500px;
+    width: 500px;
+  }
+
+  &.is-active {
+    transform: translate(0);
+  }
+
+  .btn-nav-toggle {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    z-index: 1;
+  }
+  .btn-nav-toggle svg {
+    fill: var(--secondary);
+  }
+  .btn-nav-toggle:hover svg {
+    fill: var(--quaternary);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    position: relative;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+
+  li h3 {
+    color: var(--secondary);
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 0;
+    line-height: 1.2;
+  }
+
+  li h3 span,
+  li h3 > a {
+    font-size: 1.25em;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
+
+  li h3:hover {
+    color: var(--quaternary);
+    cursor: pointer;
+  }
+
+  &__sublist {
+    margin-top: 10px;
+  }
+  &__sublist li {
+    margin: 0;
+  }
+  &__sublist a {
+    color: var(--secondary);
+    font-size: 16px;
+  }
+  &__sublist a:hover {
+    color: var(--quaternary);
+  }
+}
+
+.nav-sidebar.is-active + .nav-sidebar-overlay {
+  pointer-events: all;
+  opacity: 0.2;
+}
+.nav-sidebar-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms;
+  background: var(--header_primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1004;
+}

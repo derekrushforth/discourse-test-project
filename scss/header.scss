@@ -1,0 +1,110 @@
+.header-wrapper {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: var(--header_primary);
+  background-image: url($header-bg-2);
+  background-origin: padding-box;
+  background-position: 0% 55%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--header-primary);
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25.7143px;
+  text-align: left;
+  text-size-adjust: 100%;
+
+  .logged-in & {
+    background-image: url($header-bg-1);
+  }
+
+  @include at-s {
+    padding-bottom: 55px;
+  }
+
+  // Match Discourse header transition
+  .wrap {
+    transition: all 250ms ease-in;
+  }
+
+  &__hero {
+    padding: 15px 0;
+  }
+
+  &__hero h2 {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--secondary);
+    line-height: 1.2;
+    text-align: center;
+
+    @include at-s {
+      font-size: 49px;
+      line-height: 1.1;
+    }
+  }
+
+  &--slim {
+    background-position: 0% 80%;
+    padding-bottom: 0;
+  }
+  &--slim .search-wrapper {
+    margin: 25px auto;
+  }
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  &__logo {
+    display: block;
+    width: 150px;
+    height: 40px;
+    margin: 20px;
+
+    @include at-s {
+      width: 188px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+  }
+  &__items li {
+    padding: 0 5px;
+
+    @include at-s {
+      padding: 0 25px;
+    }
+  }
+  &__items li:first-child {
+    display: none;
+
+    @include at-s {
+      display: block;
+    }
+  }
+
+  &__link,
+  &__link:visited {
+    color: var(--secondary);
+    font-size: 16px;
+    transition: color 200ms;
+  }
+  &__link:hover {
+    color: var(--quaternary);
+  }
+}
